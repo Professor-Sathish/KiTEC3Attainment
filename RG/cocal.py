@@ -20,9 +20,12 @@ def twococalc():
     #Get CO1 and CO2 Mark Splitup
     CO1=int(input("Enter 1st CO Splitup Mark :"))
     CO2=int(input("Enter 2nd CO Splitup Mark :"))
-    assname=input("Enter Assesment name :")
-    subname=input("Enter Subject name :")
-    fname=(assname+subname)+".csv"
+    
+    coursecode=(input("Enter coursecode :")).upper()
+    assname=(input("Enter Assesment name :")).upper()
+    batch=input("Enter batch:")    
+    fname=(coursecode+"_"+assname+"_"+batch)+".csv"
+    
     studentcount=len(ml)
     #To intialize the student number list,co1 mark list, co2 marklist
     stuco1ml=[]
@@ -32,8 +35,8 @@ def twococalc():
         Flag=True
         total=ml[i]
         while Flag:
-            a=random.randint(10,CO1)
-            b=random.randint(10,CO2)
+            a=random.randint(5,total-6)
+            b=total-a
             tt=a+b
             if tt==total:
                 Flag=False
@@ -64,9 +67,12 @@ def fivecocalc():
     CO4=int(input("Enter 4th CO Splitup Mark :"))
     CO5=int(input("Enter 5th CO Splitup Mark :"))
     
-    assname=input("Enter Assesment name :")
-    subname=input("Enter Subject name :")
-    fname=(assname+subname)+".csv"
+   
+    coursecode=(input("Enter coursecode :")).upper()
+    assname=(input("Enter Assesment name :")).upper()
+    batch=input("Enter batch:")    
+    fname=(coursecode+"_"+assname+"_"+batch)+".csv"
+    
     studentcount=len(ml)
     #To intialize the student number list,co1 mark list, co2 marklist
     stuco1ml=[]
