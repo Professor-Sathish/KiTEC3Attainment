@@ -1,4 +1,4 @@
-#CO SPLITUP GENERATOR
+#CO SPLITUP GENERATOR by Prof Sathish,KiTE
 import random
 import math
 import sys
@@ -6,8 +6,8 @@ import csv
 
 #Welcome to the CO Attainment Generator
 
-print(" Hi Team \n", "--> Don't Get Stressed \n","--> I  simplified your work , support of PYTHON\n")
-def twococalc():
+print(" Hi Team \n", "--> Don't Get Stressed \n","--> I  simplified your work , support of PYTHON\n","CO SPLITUP GENERATOR by Prof Sathish,KiTE\n")
+def twococalc100():
     #Intialize the Mark list as empty list
     ml=[]
     #To read the Mark List from inputm.csv file from stored Location
@@ -35,13 +35,124 @@ def twococalc():
         Flag=True
         total=ml[i]
         while Flag:
-            a=random.randint(5,total-6)
-            b=total-a
+            if total>0:
+                a=random.randint(1,CO1)
+            elif total<=0:
+                a=0
+                b=0
+            if (total-a)>0:
+                b=random.randint(1,CO2)
+            else:
+                b=0
             tt=a+b
             if tt==total:
                 Flag=False
         stuco1ml.append(a)
-        stuco2ml.append(b)
+        stuco2ml.append(b)  
+    
+    # Generated Random Values to store the output CSV file
+    with open(fname, "w", newline="") as outfile:
+        writer = csv.writer(outfile)
+        writer.writerow(["CO1 Mark", "CO2 Mark","Total Mark"])
+        for i in range(studentcount):
+           writer.writerow([stuco1ml[i], stuco2ml[i],ml[i]])
+
+
+def twococalc100100():
+    #Intialize the Mark list as empty list
+    ml=[]
+    #To read the Mark List from inputm.csv file from stored Location
+    with open('inputm.csv', newline='') as f:
+        reader = csv.reader(f)
+        totall=[list(map(int,rec)) for rec in csv.reader(f, delimiter=',')]
+    #To update the Mark List from Readed CSV File
+    for i in range(len(totall)):
+        ml.append(math.ceil((totall[i][0]))) 
+    #Get CO1 and CO2 Mark Splitup
+    CO1=int(input("Enter 1st CO Splitup Mark :"))
+    CO2=int(input("Enter 2nd CO Splitup Mark :"))
+    
+    coursecode=(input("Enter coursecode :")).upper()
+    assname=(input("Enter Assesment name :")).upper()
+    batch=input("Enter batch:")    
+    fname=(coursecode+"_"+assname+"_"+batch)+".csv"
+    
+    studentcount=len(ml)
+    #To intialize the student number list,co1 mark list, co2 marklist
+    stuco1ml=[]
+    stuco2ml=[]
+    #Random Generator
+    for i in range(studentcount):
+        Flag=True
+        total=ml[i]
+        while Flag:
+            if total>0:
+                a=random.randint(1,CO1)
+            elif total<=0:
+                a=0
+                b=0
+            if (total-a)>0:
+                b=random.randint(1,CO2)
+            else:
+                b=0
+            tt=a+b
+            if tt==total:
+                Flag=False
+        stuco1ml.append(a)
+        stuco2ml.append(b)  
+    
+    # Generated Random Values to store the output CSV file
+    with open(fname, "w", newline="") as outfile:
+        writer = csv.writer(outfile)
+        writer.writerow(["CO1 Mark", "CO2 Mark","Total Mark"])
+        for i in range(studentcount):
+           writer.writerow([stuco1ml[i], stuco2ml[i],ml[i]])
+
+
+        
+
+def twococalc50():
+    #Intialize the Mark list as empty list
+    ml=[]
+    #To read the Mark List from inputm.csv file from stored Location
+    with open('inputm.csv', newline='') as f:
+        reader = csv.reader(f)
+        totall=[list(map(int,rec)) for rec in csv.reader(f, delimiter=',')]
+    #To update the Mark List from Readed CSV File
+    for i in range(len(totall)):
+        ml.append(math.ceil((totall[i][0]))) 
+    #Get CO1 and CO2 Mark Splitup
+    CO1=int(input("Enter 1st CO Splitup Mark :"))
+    CO2=int(input("Enter 2nd CO Splitup Mark :"))
+    
+    coursecode=(input("Enter coursecode :")).upper()
+    assname=(input("Enter Assesment name :")).upper()
+    batch=input("Enter batch:")    
+    fname=(coursecode+"_"+assname+"_"+batch)+".csv"
+    
+    studentcount=len(ml)
+    #To intialize the student number list,co1 mark list, co2 marklist
+    stuco1ml=[]
+    stuco2ml=[]
+    #Random Generator
+    for i in range(studentcount):
+        Flag=True
+        total=ml[i]
+        while Flag:
+            if total>0:
+                a=random.randint(1,CO1)
+            elif total<0:
+                a=0
+                b=0
+            if (total-a)>0:
+                b=random.randint(1,CO2)
+            else:
+                b=0
+            tt=a+b
+            if tt==total:
+                Flag=False
+        stuco1ml.append(a)
+        stuco2ml.append(b)    
     # Generated Random Values to store the output CSV file
     with open(fname, "w", newline="") as outfile:
         writer = csv.writer(outfile)
@@ -87,11 +198,20 @@ def fivecocalc():
         Flag=True
         total=ml[i]
         while Flag:
-            a=random.randint(5,CO1)
-            b=random.randint(5,CO2)
-            c=random.randint(5,CO3)
-            d=random.randint(5,CO4)
-            e=random.randint(5,CO5)
+            if total==0:
+                a=b=c=d=e=0
+            elif total<=50:
+                a=random.randint(0,CO1)
+                b=random.randint(0,CO2)
+                c=random.randint(0,CO3)
+                d=random.randint(0,CO4)
+                e=random.randint(0,CO5)
+            else:
+                a=random.randint(10,CO1)
+                b=random.randint(10,CO2)
+                c=random.randint(10,CO3)
+                d=random.randint(10,CO4)
+                e=random.randint(10,CO5)
             
             tt=a+b+c+d+e
             if tt==total:
